@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>address - View All</title>
+</head>
+<body>
+<h1>address</h1>
+
+<table border="1">
+<tr>
+    <th>street</th>
+    <th>zip_code</th>
+    <th>Action</th>
+</tr>
+<% for(var i = 0; i < result.length; i++)  {  %>
+<tr>
+    <td>
+        <a href="/address/?address_id=<%= result[i].address_id%>">
+            <%= result[i].street %>
+        </a>
+    </td>
+    <td>
+        <a href="/address/?address_id=<%= result[i].address_id%>">
+            <%= result[i].zip_code %>
+        </a>
+    </td>
+    <td>
+        <a href='/address/edit/?address_id=<%= result[i].address_id %>'>
+            Edit
+        </a>
+    </td>
+</tr>
+<% } %>
+</table>
+</body>
+</html>

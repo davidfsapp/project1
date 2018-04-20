@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skill - View All</title>
+</head>
+<body>
+<h1>skill</h1>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Action</th>
+</tr>
+<% for(var i = 0; i < result.length; i++)  {  %>
+<tr>
+    <td>
+        <a href="/skill/?skill_id=<%= result[i].skill_id %>">
+            <%= result[i].skill_name %>
+        </a>
+    </td>
+    <td>
+        <a href="/skill/?skill_id=<%= result[i].skill_id %>">
+            <%= result[i].description %>
+        </a>
+    </td>
+    <td>
+        <a href='/skill/edit/?skill_id=<%= result[i].skill_id %>'>
+            Edit
+        </a>
+    </td>
+</tr>
+<% } %>
+</table>
+</body>
+</html>

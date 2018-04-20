@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School - View All</title>
+</head>
+<body>
+<h1>Schools</h1>
+<a href="/school/add">Add New School</a> <br />
+<table border="1">
+    <tr><th>Name</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td>
+            <a href="/school/?school_id=<%= result[i].school_id %>">
+                <%= result[i].school_name %>
+            </a>
+        </td>
+        <td>
+            <a href='/school/edit/?school_id=<%= result[i].school_id %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

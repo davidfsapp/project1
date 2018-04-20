@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phone Number - View All</title>
+</head>
+<body>
+<h1>Phone Number</h1>
+<table border="1">
+    <tr>
+        <th>Cell_Num</th>
+        <th>Work_num</th>
+        <th>Home_num</th>
+    </tr>
+    <% for(var i = 0; i < phone_number.length; i++)  {  %>
+    <tr>
+        <td>
+            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+                <%= phone_number[i].cell_num %>
+            </a>
+        </td>
+        <td>
+            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+                <%= phone_number[i].work_num %>
+            </a>
+        </td>
+        <td>
+            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+                <%= phone_number[i].home_num %>
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

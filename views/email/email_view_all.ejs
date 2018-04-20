@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email - View All</title>
+</head>
+<body>
+<h1>Email</h1>
+<table border="1">
+    <tr>
+        <th>Main Email</th>
+        <th>Work Email</th>
+    </tr>
+    <% for(var i = 0; i < email.length; i++)  {  %>
+    <tr>
+        <td>
+            <a href="/name/?name_id=<%= email[i].name_id %>">
+                <%= email[i].main_email %>
+            </a>
+        </td>
+        <td>
+            <a href="/name/?name_id=<%= email[i].name_id %>">
+                <%= email[i].work_email %>
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>
