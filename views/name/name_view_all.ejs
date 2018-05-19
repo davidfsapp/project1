@@ -4,14 +4,17 @@
     <title>Name - View All</title>
 </head>
 <body>
-<h1>Name</h1>
+<h1>Name/Queries</h1>
+<a href="add">Add New Name</a> <br />
 <table border="1">
     <tr>
         <th>First_name</th>
         <th>Last_name</th>
-        <th>middle_init</th>
+        <th>Middle Init</th>
+        <th>Actions</th>
     </tr>
-    <% for(var i = 0; i < name.length; i++)  {  %>
+        <% for(var i = 0; i < name.length; i++)  {  %>
+    <tr>
     <tr>
         <td>
             <a href="/name/?name_id=<%= name[i].name_id %>">
@@ -27,6 +30,14 @@
             <a href="/name/?name_id=<%= name[i].name_id %>">
                 <%= name[i].middle_init %>
             </a>
+        </td>
+        <td>
+        <a href='/name/edit?name_id=<%= name[i].name_id %>'>
+            Edit
+        </a>
+            &nbsp;<a href='/name/delete?name_id=<%= name[i].name_id %>'>
+                Delete
+        </a>
         </td>
     </tr>
     <% } %>

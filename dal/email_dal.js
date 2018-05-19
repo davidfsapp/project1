@@ -35,11 +35,27 @@ exports.getinfo = function (email_id, callback) {
 };
 
 exports.update = function (params, callback) {
-    var query = 'update email set main_email = ?, work_email = ?';
-    var queryData = [params.main_email, params.work_email];
+    var query = 'update email set main_email = ?, work_email = ? where email_id = ?';
+    var queryData = [params.main_email, params.work_email, params.email_id];
 
     connection.query(query, queryData, function (err, result) {
 
+        callback(err, result);
+    });
+};
+exports.delete = function(params, callback) {
+    var query = 'delete from email where email_id = ?';
+    var queryData = [params.email_id];
+    connection.query(query, queryData, function(err, result)
+    {
+        callback(err, result);
+    });
+};
+exports.insert = function(params, callback)  {
+    var query = 'INSERT INTO email (email_id, main_email, work_email) VALUES (?, ?, ?)';
+    var queryData = [params.email_id, params.main_email, params.work_email];
+
+    connection.query(query, queryData, function(err, result)  {
         callback(err, result);
     });
 };

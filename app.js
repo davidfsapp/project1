@@ -15,6 +15,8 @@ var name = require('./routes/name');
 var physical_address = require('./routes/physical_address');
 var email = require('./routes/email');
 var phone_number = require('./routes/phone_number');
+var school = require('./routes/school');
+var resume = require('./routes/resume');
 var app = express();
 
 
@@ -40,6 +42,8 @@ app.use('/name', name);
 app.use('/physical_address', physical_address);
 app.use('/email', email);
 app.use('/phone_number', phone_number);
+app.use('/school', school);
+app.use('/resume', resume);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

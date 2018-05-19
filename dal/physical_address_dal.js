@@ -25,7 +25,7 @@ exports.insert = function(params, callback)  {
     });
 };
 
-exports.getinfo = function (physical_address_id, callback) {
+exports.edit = function (physical_address_id, callback) {
     var query = "call physical_address_getinfo(?)";
     var queryData = [physical_address_id];
 
@@ -36,10 +36,18 @@ exports.getinfo = function (physical_address_id, callback) {
 
 exports.update = function (params, callback) {
     var query = 'update physical_address set street_num = ?, street = ?, zip_code = ? where physical_address_id = ?';
-    var queryData = [params.street_num, params.street, params.zip_code, params.physical_addresss_id];
+    var queryData = [params.street_num, params.street, params.zip_code, params.physical_address_id];
 
     connection.query(query, queryData, function (err, result) {
 
+        callback(err, result);
+    });
+};
+exports.delete = function(params, callback) {
+    var query = 'delete from physical_address where physical_address_id = ?';
+    var queryData = [params.physical_address_id];
+    connection.query(query, queryData, function(err, result)
+    {
         callback(err, result);
     });
 };

@@ -23,13 +23,13 @@ router.get('/all', function(req, res, next)
     })
 });
 router.get('/edit', function (req, res) {
-    phone_number_dal.getinfo(req.query.name_id, function (err, result) {
+    phone_number_dal.getinfo(req.query.phone_number_id, function (err, result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('name/nameUpdate',
-                {name: result[0][0]}
+            res.render('phone_number/phone_number_update',
+                {phone_number: result[0][0]}
             );
         }
     });
@@ -55,6 +55,17 @@ router.get('/update', function(req, res) {
         }
         else {
             res.redirect(302, '/phone_number/all');
+        }
+    });
+});
+router.get('/delete', function(req, res) {
+    var deleteID = req.query.phone_number_id;
+    phone_number_dal.delete(req.query, function(err, result){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/phone_number/all?phone_number_id=' + deleteID + '&was_successful=1');
         }
     });
 });

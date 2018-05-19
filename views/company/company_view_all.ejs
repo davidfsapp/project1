@@ -7,19 +7,25 @@
 <h1>Companies</h1>
 <a href="/company/add">Add New Company</a> <br />
 <table border="1">
-    <tr><th>Name</th><th>Actions</th></tr>
-    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <% for(var i=0; company.length > i; i++ ) { %>
     <tr>
         <td>
-            <a href="/company/?company_id=<%= result[i].company_id %>">
-                <%= result[i].company_name %>
+            <a href="/company/?company_id=<%= company[i].company_id %>">
+                <%= company[i].company_name %>
             </a>
         </td>
         <td>
-            <a href='/company/edit/?company_id=<%= result[i].company_id %>'>
+            <a href='/company/edit/?company_id=<%= company[i].company_id %>'>
                 Edit
             </a>
-        </td>
+            &nbsp;<a href="/company/delete?company_id=<%= company[i].company_id %>">
+                Delete
+            </a>
+            </td>
         </tr>
 <% } %>
 </table>

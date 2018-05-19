@@ -33,13 +33,19 @@ exports.getinfo = function (phone_number_id, callback) {
         callback(err, result);
     });
 };
-
+exports.delete = function(params, callback) {
+    var query = 'delete from phone_number where phone_number_id = ?';
+    var queryData = [params.phone_number_id];
+    connection.query(query, queryData, function(err, result)
+    {
+        callback(err, result);
+    });
+};
 exports.update = function (params, callback) {
-    var query = 'update phone_number set cell_num = ?, work_num = ?, home_num= ?';
-    var queryData = [params.cell_num, params.work_num, params.home_num];
-
-    connection.query(query, queryData, function (err, result) {
-
+    var query = 'update phone_number set cell_num = ?, work_num = ?, home_num= ? where phone_number_id = ?';
+    var queryData = [params.cell_num, params.work_num, params.home_num, params.phone_number_id];
+    connection.query(query, queryData, function(err, result)
+    {
         callback(err, result);
     });
 };

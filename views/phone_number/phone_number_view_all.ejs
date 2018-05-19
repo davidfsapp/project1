@@ -5,27 +5,37 @@
 </head>
 <body>
 <h1>Phone Number</h1>
+<a href="add">Add New Phone Number</a> <br />
 <table border="1">
     <tr>
         <th>Cell_Num</th>
         <th>Work_num</th>
         <th>Home_num</th>
+        <th>Actions</th>
     </tr>
     <% for(var i = 0; i < phone_number.length; i++)  {  %>
     <tr>
         <td>
-            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+            <a href="/phone_number/?phone_number_id=<%= phone_number[i].phone_number_id %>">
                 <%= phone_number[i].cell_num %>
             </a>
         </td>
         <td>
-            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+            <a href="/phone_number/?phone_number_id=<%= phone_number[i].phone_number_id %>">
                 <%= phone_number[i].work_num %>
             </a>
         </td>
         <td>
-            <a href="/name/?name_id=<%= phone_number[i].name_id %>">
+            <a href="/phone_number/?phone_number_id=<%= phone_number[i].phone_number_id %>">
                 <%= phone_number[i].home_num %>
+            </a>
+        </td>
+        <td>
+            <a href='/phone_number/edit/?phone_number_id=<%= phone_number[i].phone_number_id %>'>
+                Edit
+            </a>
+            &nbsp;<a href='/phone_number/delete/?phone_number_id=<%= phone_number[i].phone_number_id %>'>
+                Delete
             </a>
         </td>
     </tr>

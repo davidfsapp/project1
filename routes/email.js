@@ -23,13 +23,13 @@ router.get('/all', function(req, res, next)
     })
 });
 router.get('/edit', function (req, res) {
-    email_dal.getinfo(req.query.name_id, function (err, result) {
+    email_dal.getinfo(req.query.email_id, function (err, result) {
         if (err) {
             res.send(err);
         }
         else {
             res.render('email/emailUpdate',
-                {name: result[0][0]}
+                {email: result[0][0]}
             );
         }
     });
@@ -55,6 +55,17 @@ router.get('/update', function(req, res) {
         }
         else {
             res.redirect(302, '/email/all');
+        }
+    });
+});
+router.get('/delete', function(req, res) {
+    var deleteID = req.query.email_id;
+    email_dal.delete(req.query, function(err, result){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/email/all?email_id=' + deleteID + '&was_successful=1');
         }
     });
 });

@@ -23,12 +23,12 @@ router.get('/all', function(req, res, next)
     })
 });
 router.get('/edit', function (req, res) {
-    physical_address_dal.getinfo(req.query.name_id, function (err, result) {
+    physical_address_dal.edit(req.query.physical_address_id, function (err, result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('physical_address/physical_address_Update',
+            res.render('physical_address/physical_address_update',
                 {physical_address: result[0][0]}
             );
         }
@@ -55,6 +55,17 @@ router.get('/update', function(req, res) {
         }
         else {
             res.redirect(302, '/physical_address/all');
+        }
+    });
+});
+router.get('/delete', function(req, res) {
+    var deleteID = req.query.physical_address_id;
+    physical_address_dal.delete(req.query, function(err, result){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/physical_address/all?physical_address_id=' + deleteID + '&was_successful=1');
         }
     });
 });

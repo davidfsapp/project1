@@ -58,4 +58,26 @@ router.get('/update', function(req, res) {
         }
     });
 });
+router.get('/add/name_added_user', function(req, res) {
+    resume_dal.getAll(function (err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('resume/resume_add_selectuser', {
+                account: result});
+        }
+    });
+});
+router.get('/delete', function(req, res) {
+    var deleteID = req.query.name_id;
+    name_dal.delete(req.query, function(err, result){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/name/all?name_id=' + deleteID + '&was_successful=1');
+        }
+    });
+});
 module.exports = router;

@@ -19,7 +19,7 @@ router.get('/all', function(req, res, next)
         else
         {
             console.log(result);
-            res.render('company/company_view_all',  {result: result});
+            res.render('company/company_view_all',  {company: result, was_successful: req.query.was_successful});
         }
     })
 });
@@ -68,5 +68,15 @@ router.get('/update', function(req, res) {
            res.redirect(302, '/company/all');
        }
    });
+});
+router.get('/delete', function(req, res) {
+    company_dal.delete(req.query, function(err, result){
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/company/all?company_id=' + company_id + '&was_successful=1');
+        }
+    });
 });
 module.exports = router;

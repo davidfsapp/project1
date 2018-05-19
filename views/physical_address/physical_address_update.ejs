@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name - Edit</title>
+</head>
+<body>
+<h1>Edit </h1>
+<form action="/physical_address/update" method="get">
+    <input type="hidden"
+           id="physical_address_id"
+           name="physical_address_id"
+           value="<%= physical_address.physical_address_id %>"
+    />
+    Street_Num: <input
+            id="street_num"
+            name="street_num"
+            type="text"
+            value="<%= physical_address.street_num %>"
+    />
+    Street: <input
+            id="street"
+            name="street"
+            type="text"
+            value="<%= physical_address.street %>"
+    />
+    Zip_Code: <input
+            id="zip_code"
+            name="zip_code"
+            type="text"
+            value="<%= physical_address.zip_code %>"
+    />
+    <input type="submit"  />
+</form>
+</body>
+</html>

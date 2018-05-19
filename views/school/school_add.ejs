@@ -10,8 +10,13 @@
     <br />
     Address
     <br />
-    <% for(var i=0; address_result.length > i; i++ ) { %>
-    <input type="checkbox" name="address_id" value="<%=
+    <% for(var i=0; address_result.length > i; i++ ) {
+           var checked = "";
+
+    if(address_result[i].school_id != null) {
+        checked = "checked";
+    } %>
+    <input type="checkbox" name="address_id" <% checked %> value="<%=
         address_result[i].address_id %>"> <%= address_result[i].street + ', '
     + address_result[i].zip_code%>
     <br />

@@ -5,27 +5,37 @@
 </head>
 <body>
 <h1>Phyiscal_Address</h1>
+<a href="add">Add New Address</a> <br />
 <table border="1">
     <tr>
         <th>street_num</th>
         <th>street</th>
         <th>zip_code</th>
+        <th>Actions</th>
     </tr>
     <% for(var i = 0; i < physical_address.length; i++)  {  %>
     <tr>
         <td>
-            <a href="/name/?name_id=<%= physical_address[i].name_id %>">
+            <a href="/physical_address/?physical_address_id=<%= physical_address[i].physical_address_id %>">
                 <%= physical_address[i].street_num %>
             </a>
         </td>
         <td>
-            <a href="/name/?name_id=<%= physical_address[i].name_id %>">
+            <a href="/physical_address/?physical_address_id=<%= physical_address[i].physical_address_id%>">
                 <%= physical_address[i].street %>
             </a>
         </td>
         <td>
-            <a href="/name/?name_id=<%= physical_address[i].name_id %>">
+            <a href="/physical_address/?physical_address_id=<%= physical_address[i].physical_address_id %>">
                 <%= physical_address[i].zip_code %>
+            </a>
+        </td>
+        <td>
+            <a href='/physical_address/edit?physical_address_id=<%= physical_address[i].physical_address_id %>'>
+                Edit
+            </a>
+            &nbsp;<a href='/physical_address/delete?physical_address_id=<%= physical_address[i].physical_address_id %>'>
+                Delete
             </a>
         </td>
     </tr>
